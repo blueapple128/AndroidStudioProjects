@@ -2,5 +2,5 @@
     <string name="app_name">TestScreen</string>
     <string name="message_placeholder">Enter a message</string>
     <string name="send_button">Send</string>
-    <string name="center_text">test</string>
+    <string name="center_text">0</string>
 </resources>
