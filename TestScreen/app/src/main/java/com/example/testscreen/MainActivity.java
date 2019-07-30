@@ -19,11 +19,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     Log.d(LOG_TAG, "foo");
-    try {
-      throw new Exception();
-    } catch (Exception e) {
-      Log.e(LOG_TAG, Log.getStackTraceString(e), e);
-    }
   }
 
   public void sendMessage(View view) {
