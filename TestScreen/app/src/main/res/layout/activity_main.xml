@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/screenBackground"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/message_placeholder"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
@@ -29,11 +32,14 @@
         android:layout_marginRight="16dp"
         android:onClick="sendMessage"
         android:text="@string/send_button"
-        android:layout_below="@+id/editText" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editText" />
 
     <Button
         android:id="@+id/toast_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -44,12 +50,14 @@
         android:onClick="showToast"
         android:text="@string/toast_button"
         android:textColor="@android:color/white"
-        android:layout_below="@+id/button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/count_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFF00"
@@ -59,14 +67,15 @@
         android:textColor="@color/colorPrimary"
         android:textSize="160sp"
         android:textStyle="bold"
-        android:layout_below="@+id/toast_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        app:fontFamily="sans-serif" />
+        app:fontFamily="sans-serif"
+        app:layout_constraintBottom_toTopOf="@+id/count_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toast_button" />
 
     <Button
         android:id="@+id/count_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -77,8 +86,9 @@
         android:onClick="countUp"
         android:text="@string/count_button"
         android:textColor="@android:color/white"
-        android:layout_below="@+id/count_text"
-        android:layout_centerHorizontal="true" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/random_button"
@@ -93,6 +103,10 @@
         android:background="@color/buttonBackground"
         android:onClick="randomMe"
         android:text="@string/random_button"
-        android:layout_below="@+id/count_button" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/count_text"
+        app:layout_constraintVertical_bias="0.75" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
