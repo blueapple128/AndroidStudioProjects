@@ -3,4 +3,5 @@
     <string name="message_placeholder">Enter a message</string>
     <string name="send_button">Send</string>
     <string name="center_text">0</string>
+    <string name="random_heading">Here is a random number between 0 and %1d</string>
 </resources>

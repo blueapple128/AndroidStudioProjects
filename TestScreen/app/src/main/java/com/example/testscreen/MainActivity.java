@@ -36,4 +36,12 @@ public class MainActivity extends AppCompatActivity {
     count++;
     countText.setText(count.toString());
   }
+
+  public void randomMe(View view) {
+    Intent randomIntent = new Intent(this, RandomActivity.class);
+    TextView countText = (TextView)findViewById(R.id.count_text);
+    int count = Integer.parseInt(countText.getText().toString());
+    randomIntent.putExtra("com.example.testscreen.TOTAL_COUNT", count);
+    startActivity(randomIntent);
+  }
 }
