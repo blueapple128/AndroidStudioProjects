@@ -14,10 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
   private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
+  private int count = 0;
+  private TextView countText;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    countText = (TextView)findViewById(R.id.count_text);
     Log.d(LOG_TAG, "foo");
   }
 
@@ -29,16 +33,14 @@ public class MainActivity extends AppCompatActivity {
     startActivity(intent);
   }
 
-  public void toastMe(View view) {
-    Toast toast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT);
+  public void showToast(View view) {
+    Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
     toast.show();
   }
 
-  public void countMe(View view) {
-    TextView countText = (TextView)findViewById(R.id.count_text);
-    Integer count = Integer.parseInt(countText.getText().toString());
+  public void countUp(View view) {
     count++;
-    countText.setText(count.toString());
+    countText.setText(Integer.toString(count));
   }
 
   public void randomMe(View view) {
