@@ -1,9 +1,11 @@
 package com.example.testscreen;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
   public void countUp(View view) {
     count++;
     countText.setText(Integer.toString(count));
+    view.setBackgroundColor((count % 2 == 0) ? Color.GREEN : Color.BLUE);
+
+    Button zeroButton = (Button)findViewById(R.id.zero_button);
+    zeroButton.setBackgroundColor(Color.MAGENTA);
   }
 
   public void randomMe(View view) {
@@ -49,5 +55,11 @@ public class MainActivity extends AppCompatActivity {
     int count = Integer.parseInt(countText.getText().toString());
     randomIntent.putExtra("com.example.testscreen.TOTAL_COUNT", count);
     startActivity(randomIntent);
+  }
+
+  public void zeroMe(View view) {
+    count = 0;
+    countText.setText("0");
+    view.setBackgroundColor(Color.GRAY);
   }
 }
