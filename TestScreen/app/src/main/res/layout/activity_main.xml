@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,7 +28,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="sendMessage"
-        android:text="@string/send_button" />
+        android:text="@string/send_button"
+        android:layout_below="@+id/editText" />
 
     <Button
         android:id="@+id/toast_button"
@@ -42,7 +43,8 @@
         android:background="@color/colorPrimary"
         android:onClick="showToast"
         android:text="@string/toast_button"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/button" />
 
     <TextView
         android:id="@+id/count_text"
@@ -57,7 +59,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="160sp"
         android:textStyle="bold"
-        android:layout_weight="1"
+        android:layout_below="@+id/toast_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         app:fontFamily="sans-serif" />
 
     <Button
@@ -72,7 +76,9 @@
         android:background="@color/colorPrimary"
         android:onClick="countUp"
         android:text="@string/count_button"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/count_text"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/random_button"
@@ -86,6 +92,7 @@
         android:layout_marginRight="8dp"
         android:background="@color/buttonBackground"
         android:onClick="randomMe"
-        android:text="@string/random_button" />
+        android:text="@string/random_button"
+        android:layout_below="@+id/count_button" />
 
-</LinearLayout>
+</RelativeLayout>
