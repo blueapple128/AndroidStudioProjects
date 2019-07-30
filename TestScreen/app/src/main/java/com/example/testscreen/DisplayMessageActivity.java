@@ -1,4 +1,4 @@
-package com.example.testscreen2;
+package com.example.testscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     setContentView(R.layout.activity_display_message);
 
     Intent intent = getIntent();
-    String message = intent.getStringExtra("com.example.testscreen2.MESSAGE");
+    String message = intent.getStringExtra("com.example.testscreen.MESSAGE");
 
     TextView textView = findViewById(R.id.textView);
     textView.setText(message);

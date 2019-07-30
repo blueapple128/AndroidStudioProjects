@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testscreen2">
+    package="com.example.testscreen">
 
     <application
         android:allowBackup="true"
@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.testscreen2.RandomActivity"></activity>
+        <activity android:name="com.example.testscreen.RandomActivity"></activity>
         <activity
-            android:name="com.example.testscreen2.DisplayMessageActivity"
-            android:parentActivityName="com.example.testscreen2.MainActivity">
+            android:name="com.example.testscreen.DisplayMessageActivity"
+            android:parentActivityName="com.example.testscreen.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.testscreen2.MainActivity" />
+                android:value="com.example.testscreen.MainActivity" />
         </activity>
-        <activity android:name="com.example.testscreen2.MainActivity">
+        <activity android:name="com.example.testscreen.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

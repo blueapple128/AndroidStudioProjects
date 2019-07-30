@@ -1,4 +1,4 @@
-package com.example.testscreen2;
+package com.example.testscreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent = new Intent(this, DisplayMessageActivity.class);
     EditText editText = (EditText)findViewById(R.id.editText);
     String message = editText.getText().toString();
-    intent.putExtra("com.example.testscreen2.MESSAGE", message);
+    intent.putExtra("com.example.testscreen.MESSAGE", message);
     startActivity(intent);
   }
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     Intent randomIntent = new Intent(this, RandomActivity.class);
     TextView countText = (TextView)findViewById(R.id.count_text);
     int count = Integer.parseInt(countText.getText().toString());
-    randomIntent.putExtra("com.example.testscreen2.TOTAL_COUNT", count);
+    randomIntent.putExtra("com.example.testscreen.TOTAL_COUNT", count);
     startActivity(randomIntent);
   }
 }
