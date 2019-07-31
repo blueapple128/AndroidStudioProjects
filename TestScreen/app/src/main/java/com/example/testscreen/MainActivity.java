@@ -1,5 +1,6 @@
 package com.example.testscreen;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +24,13 @@ public class MainActivity extends AppCompatActivity {
   public static final int SCROLL_HORIZONTAL = 0;
   public static final int SCROLL_VERTICAL = 1;
   public static final int TEXT_REQUEST = 1;
+  public static final int SHOPPING_LIST_REQUEST = 2;
 
   private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
   private int count = 0;
+  private String[] shoppingList = {"", "", "", "", "", "", "", "", "", ""};
+  private TextView[] shoppingItemIds = {null, null, null, null, null, null, null, null, null, null};
   private TextView countText;
   private EditText sendEditText;
   private TextView replyHeaderText;
@@ -50,10 +54,80 @@ public class MainActivity extends AppCompatActivity {
     });
     */
 
+    Log.d(LOG_TAG, "-------");
+    Log.d(LOG_TAG, "onCreate");
+
+    Resources r = getResources();
+    for (int i=0; i<10; i++) {
+      int id = r.getIdentifier("shopping_item_" + i, "id", getPackageName());
+      shoppingItemIds[i] = (TextView)findViewById(id);
+    }
     countText = (TextView)findViewById(R.id.count_text);
     sendEditText = (EditText)findViewById(R.id.send_editText);
     replyHeaderText = (TextView)findViewById(R.id.reply_header_text);
     replyMessageText = (TextView)findViewById(R.id.reply_message_text);
+
+    if (savedInstanceState != null) {
+      count = savedInstanceState.getInt("count");
+      if (savedInstanceState.getBoolean("reply_visible")) {
+        replyHeaderText.setVisibility(View.VISIBLE);
+        replyMessageText.setText(savedInstanceState.getString("reply_text"));
+        replyMessageText.setVisibility(View.VISIBLE);
+      }
+      shoppingList = savedInstanceState.getStringArray("shopping_list");
+    }
+
+    countText.setText(Integer.toString(count));
+    for (int i=0; i<10; i++) {
+      shoppingItemIds[i].setText(shoppingList[i]);
+    }
+  }
+
+  @Override
+  public void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putInt("count", count);
+    if (replyHeaderText.getVisibility() == View.VISIBLE) {
+      outState.putBoolean("reply_visible", true);
+      outState.putString("reply_text", replyMessageText.getText().toString());
+    }
+    outState.putStringArray("shopping_list", shoppingList);
+  }
+
+  @Override
+  protected void onStart() {
+    super.onStart();
+    Log.d(LOG_TAG, "onStart");
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    Log.d(LOG_TAG, "onPause");
+  }
+
+  @Override
+  protected void onRestart() {
+    super.onRestart();
+    Log.d(LOG_TAG, "onRestart");
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    Log.d(LOG_TAG, "onResume");
+  }
+
+  @Override
+  protected void onStop() {
+    super.onStop();
+    Log.d(LOG_TAG, "onStop");
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    Log.d(LOG_TAG, "onDestroy");
   }
 
   @Override
@@ -78,29 +152,43 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (resultCode == RESULT_OK) {
+      switch (requestCode) {
+        case TEXT_REQUEST:
+          String reply = data.getStringExtra("com.example.testscreen.REPLY");
+          replyHeaderText.setVisibility(View.VISIBLE);
+          replyMessageText.setText(reply);
+          replyMessageText.setVisibility(View.VISIBLE);
+          break;
+        case SHOPPING_LIST_REQUEST:
+          String item = data.getStringExtra("com.example.testscreen.SHOPPING_ITEM");
+          for (int i=0; i<10; i++) {
+            if (shoppingList[i].isEmpty()) {
+              shoppingList[i] = item;
+              int id = getResources().getIdentifier("shopping_item_" + i, "id", getPackageName());
+              TextView listItem = (TextView)findViewById(id);
+              listItem.setText(item);
+              break;
+            }
+          }
+          break;
+        default:
+          Log.e(LOG_TAG, String.format("Unexpected request code %d!", requestCode));
+      }
+    } else {
+      Log.e(LOG_TAG, String.format("Unexpected result code %d!", resultCode));
+    }
+  }
+
   public void sendMessage(View view) {
     Intent intent = new Intent(this, DisplayMessageActivity.class);
     String message = sendEditText.getText().toString();
     intent.putExtra("com.example.testscreen.MESSAGE", message);
     startActivityForResult(intent, TEXT_REQUEST);
-  }
-
-  @Override
-  public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if (requestCode == TEXT_REQUEST) {
-      if (resultCode == RESULT_OK) {
-        String reply = data.getStringExtra("com.example.testscreen.REPLY");
-        replyHeaderText.setVisibility(View.VISIBLE);
-        replyMessageText.setText(reply);
-        replyMessageText.setVisibility(View.VISIBLE);
-      } else {
-        Log.e(LOG_TAG, String.format("Unexpected result code %d!", resultCode));
-      }
-    } else {
-      Log.e(LOG_TAG, String.format("Unexpected request code %d!", requestCode));
-    }
   }
 
   public void showToast(View view) {
@@ -149,5 +237,10 @@ public class MainActivity extends AppCompatActivity {
     TextView countText = (TextView)findViewById(R.id.count_text);
     intent.putExtra(COUNT_EXTRA, countText.getText().toString());
     startActivity(intent);
+  }
+
+  public void addItem(View view) {
+    Intent intent = new Intent(this, ShoppingListActivity.class);
+    startActivityForResult(intent, SHOPPING_LIST_REQUEST);
   }
 }

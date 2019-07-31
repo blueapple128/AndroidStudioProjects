@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ShoppingListActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.MainActivity" />
+        </activity>
+        <activity
             android:name=".HelloActivity"
             android:parentActivityName=".MainActivity">
             <meta-data

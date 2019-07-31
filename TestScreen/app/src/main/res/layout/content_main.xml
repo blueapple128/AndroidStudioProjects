@@ -173,4 +173,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scroll_horizontal_button" />
 
+    <Button
+        android:id="@+id/add_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_item_button"
+        android:onClick="addItem"
+        app:layout_constraintStart_toEndOf="@+id/hello_button"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_horizontal_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_0"
+        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_1"
+        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_2"
+        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_3"
+        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
+
+    <TextView
+        android:id="@+id/shopping_item_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
+
+    <TextView
+        android:id="@+id/shopping_item_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_5"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
+
+    <TextView
+        android:id="@+id/shopping_item_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_6"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
+
+    <TextView
+        android:id="@+id/shopping_item_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_7"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
+
+    <TextView
+        android:id="@+id/shopping_item_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@+id/shopping_item_8"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
