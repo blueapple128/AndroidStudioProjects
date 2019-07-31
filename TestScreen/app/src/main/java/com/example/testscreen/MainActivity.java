@@ -264,6 +264,10 @@ public class MainActivity extends AppCompatActivity {
 
   private static Double getOperand(EditText operandEditText) {
     String operandText = operandEditText.getText().toString();
-    return Double.valueOf(operandText);
+    if (operandText.isEmpty()) {
+      return 0.0;
+    } else {
+      return Double.valueOf(operandText);
+    }
   }
 }
