@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
   private EditText sendEditText;
   private TextView replyHeaderText;
   private TextView replyMessageText;
+  private Calculator calculator;
+  private EditText operandOneEditText;
+  private EditText operandTwoEditText;
+  private TextView resultText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     sendEditText = (EditText)findViewById(R.id.send_editText);
     replyHeaderText = (TextView)findViewById(R.id.reply_header_text);
     replyMessageText = (TextView)findViewById(R.id.reply_message_text);
+    calculator = new Calculator();
+    resultText = findViewById(R.id.result_text);
+    operandOneEditText = findViewById(R.id.operand_1_editText);
+    operandTwoEditText = findViewById(R.id.operand_2_editText);
 
     if (savedInstanceState != null) {
       count = savedInstanceState.getInt("count");
@@ -198,5 +206,64 @@ public class MainActivity extends AppCompatActivity {
 
   public void openOther(View view) {
     startActivity(new Intent(this, OtherActivity.class));
+  }
+
+  public void onAdd(View view) {
+    compute(Calculator.Operator.ADD);
+  }
+
+  public void onSub(View view) {
+    compute(Calculator.Operator.SUB);
+  }
+
+  public void onDiv(View view) {
+    try {
+      compute(Calculator.Operator.DIV);
+    } catch (IllegalArgumentException iae) {
+      Log.e("CalculatorActivity", "IllegalArgumentException", iae);
+      resultText.setText(getString(R.string.computationError));
+    }
+  }
+
+  public void onMul(View view) {
+    compute(Calculator.Operator.MUL);
+  }
+
+  private void compute(Calculator.Operator operator) {
+    double operandOne;
+    double operandTwo;
+    try {
+      operandOne = getOperand(operandOneEditText);
+      operandTwo = getOperand(operandTwoEditText);
+    } catch (NumberFormatException nfe) {
+      Log.e("CalculatorActivity", "NumberFormatException", nfe);
+      resultText.setText(getString(R.string.computationError));
+      return;
+    }
+
+    String result;
+    switch (operator) {
+      case ADD:
+        result = String.valueOf(calculator.add(operandOne, operandTwo));
+        break;
+      case SUB:
+        result = String.valueOf(calculator.sub(operandOne, operandTwo));
+        break;
+      case DIV:
+        result = String.valueOf(calculator.div(operandOne, operandTwo));
+        break;
+      case MUL:
+        result = String.valueOf(calculator.mul(operandOne, operandTwo));
+        break;
+      default:
+        result = getString(R.string.computationError);
+        break;
+    }
+    resultText.setText(result);
+  }
+
+  private static Double getOperand(EditText operandEditText) {
+    String operandText = operandEditText.getText().toString();
+    return Double.valueOf(operandText);
   }
 }
