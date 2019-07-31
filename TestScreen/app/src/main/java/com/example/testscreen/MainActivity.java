@@ -1,13 +1,16 @@
 package com.example.testscreen;
 
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ShareCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
   private EditText sendEditText;
   private TextView replyHeaderText;
   private TextView replyMessageText;
+  private EditText websiteEditText;
+  private EditText locationEditText;
+  private EditText shareEditText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
     sendEditText = (EditText)findViewById(R.id.send_editText);
     replyHeaderText = (TextView)findViewById(R.id.reply_header_text);
     replyMessageText = (TextView)findViewById(R.id.reply_message_text);
+    websiteEditText = (EditText)findViewById(R.id.website_editText);
+    locationEditText = (EditText)findViewById(R.id.location_editText);
+    shareEditText = (EditText)findViewById(R.id.share_editText);
 
     if (savedInstanceState != null) {
       count = savedInstanceState.getInt("count");
@@ -80,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
     countText.setText(Integer.toString(count));
     for (int i=0; i<10; i++) {
       shoppingItemIds[i].setText(shoppingList[i]);
+    }
+
+    Uri uri = getIntent().getData();
+    if (uri != null) {
+      TextView textView = (TextView)findViewById(R.id.uri_message_text);
+      textView.setText(getString(R.string.uri_label) + uri.toString());
     }
   }
 
@@ -242,5 +257,46 @@ public class MainActivity extends AppCompatActivity {
   public void addItem(View view) {
     Intent intent = new Intent(this, ShoppingListActivity.class);
     startActivityForResult(intent, SHOPPING_LIST_REQUEST);
+  }
+
+  public void openWebsite(View view) {
+    String url = websiteEditText.getText().toString();
+    Uri webpage = Uri.parse(url);
+    Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+      startActivity(intent);
+    } else {
+      Log.d("ImplicitIntents", "Can't handle this!");
+    }
+  }
+
+  public void openLocation(View view) {
+    String loc = locationEditText.getText().toString();
+    Uri addressUri = Uri.parse("geo:0,0?q=" + loc);
+    Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+      startActivity(intent);
+    } else {
+      Log.d("ImplicitIntents", "Can't handle this intent!");
+    }
+  }
+
+  public void shareText(View view) {
+    String txt = shareEditText.getText().toString();
+    String mimeType = "text/plain";
+    ShareCompat.IntentBuilder.from(this)
+        .setType(mimeType)
+        .setChooserTitle(R.string.share_text_with)
+        .setText(txt)
+        .startChooser();
+  }
+
+  public void openCamera(View view) {
+    Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePicture.resolveActivity(getPackageManager()) != null) {
+      startActivity(takePicture);
+    } else {
+      Log.d("ImplicitIntents", "Can't handle this intent!");
+    }
   }
 }

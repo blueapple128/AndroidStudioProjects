@@ -41,4 +41,31 @@
         android:onClick="choseShoppingItem"
         app:layout_constraintStart_toEndOf="@+id/rice_button"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/location_editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="a particular store"
+        app:layout_constraintEnd_toStartOf="@+id/open_location_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cheese_button" />
+
+    <Button
+        android:id="@+id/open_location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/loc_button"
+        android:onClick="openLocation"
+        app:layout_constraintBaseline_toBaselineOf="@+id/location_editText"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
