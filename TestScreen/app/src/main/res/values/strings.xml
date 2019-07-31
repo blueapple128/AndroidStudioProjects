@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestScreen</string>
+    <string name="app_name">Test Screen</string>
     <string name="message_placeholder">Enter a message</string>
     <string name="send_button">Send</string>
     <string name="count_init">0</string>
@@ -32,4 +32,17 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
 \n\n
 <b><i>One After 909</i></b> — A song recorded for the <i>Let It Be</i> album was actually worked on way back in the beginning, six years earlier. This take shows how they did it much more slowly, with an R&amp;B feel to it.</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_test_navigation_drawer">TestNavigationDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 </resources>
