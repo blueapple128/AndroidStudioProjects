@@ -136,30 +136,6 @@
         app:layout_constraintTop_toBottomOf="@+id/reply_header_text" />
 
     <Button
-        android:id="@+id/scroll_horizontal_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/scroll_horizontal_button"
-        android:onClick="scrollHorizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reply_message_text" />
-
-    <Button
-        android:id="@+id/scroll_vertical_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/scroll_vertical_button"
-        android:onClick="scrollVertical"
-        app:layout_constraintStart_toEndOf="@+id/scroll_horizontal_button"
-        app:layout_constraintTop_toBottomOf="@+id/reply_message_text" />
-
-    <Button
         android:id="@+id/hello_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,219 +147,18 @@
         android:text="@string/hello_button"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_horizontal_button" />
+        app:layout_constraintTop_toBottomOf="@+id/reply_message_text" />
 
     <Button
-        android:id="@+id/add_item_button"
+        android:id="@+id/other_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/add_item_button"
-        android:onClick="addItem"
+        android:text="@string/other_button"
+        android:onClick="openOther"
+        app:layout_constraintBaseline_toBaselineOf="@+id/hello_button"
         app:layout_constraintStart_toEndOf="@+id/hello_button"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_horizontal_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_0"
-        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_1"
-        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_2"
-        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_3"
-        app:layout_constraintTop_toBottomOf="@+id/hello_button" />
-
-    <TextView
-        android:id="@+id/shopping_item_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
-
-    <TextView
-        android:id="@+id/shopping_item_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_5"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
-
-    <TextView
-        android:id="@+id/shopping_item_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_6"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
-
-    <TextView
-        android:id="@+id/shopping_item_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_7"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
-
-    <TextView
-        android:id="@+id/shopping_item_9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/shopping_item_8"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_0" />
-
-    <EditText
-        android:id="@+id/website_editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/uri_editText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/open_website_button"
-        app:layout_constraintTop_toBottomOf="@+id/shopping_item_5" />
-
-    <Button
-        android:id="@+id/open_website_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/uri_button"
-        android:onClick="openWebsite"
-        app:layout_constraintBaseline_toBaselineOf="@+id/website_editText"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/location_editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/loc_editText"
-        app:layout_constraintEnd_toStartOf="@+id/open_location_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/website_editText" />
-
-    <Button
-        android:id="@+id/open_location_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/loc_button"
-        android:onClick="openLocation"
-        app:layout_constraintBaseline_toBaselineOf="@+id/location_editText"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/share_editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/share_editText"
-        app:layout_constraintEnd_toStartOf="@+id/share_text_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_editText" />
-
-    <Button
-        android:id="@+id/share_text_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/share_button"
-        android:onClick="shareText"
-        app:layout_constraintBaseline_toBaselineOf="@+id/share_editText"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/uri_message_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/share_editText" />
-
-    <Button
-        android:id="@+id/camera_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/camera_button"
-        android:onClick="openCamera"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uri_message_text" />
+        app:layout_constraintTop_toBottomOf="@+id/reply_message_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

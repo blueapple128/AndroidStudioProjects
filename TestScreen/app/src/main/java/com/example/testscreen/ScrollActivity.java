@@ -13,9 +13,9 @@ public class ScrollActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_scroll);
 
-    int scrollDirection = getIntent().getIntExtra(MainActivity.SCROLL_EXTRA, 0);
+    int scrollDirection = getIntent().getIntExtra(OtherActivity.SCROLL_EXTRA, 0);
     LinearLayout linearLayout = (LinearLayout)findViewById(R.id.scroll_linear_layout);
-    if (scrollDirection == MainActivity.SCROLL_VERTICAL) {
+    if (scrollDirection == OtherActivity.SCROLL_VERTICAL) {
       linearLayout.setOrientation(LinearLayout.VERTICAL);
       TextView subheading = (TextView)findViewById(R.id.article_subheading);
       subheading.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
