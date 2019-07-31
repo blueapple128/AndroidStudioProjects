@@ -10,12 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".HelloActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.MainActivity" />
+        </activity>
+        <activity android:name=".ScrollActivity" />
+        <activity
             android:name=".TestNavigationDrawerActivity"
             android:label="@string/title_activity_test_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RandomActivity" />
         <activity
             android:name=".DisplayMessageActivity"
+            android:label="@string/display_message_activity_name"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
