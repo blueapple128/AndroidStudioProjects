@@ -12,7 +12,7 @@ public class HelloActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_hello);
 
-    String count = getIntent().getStringExtra(MainActivity.COUNT_EXTRA);
+    String count = getIntent().getStringExtra(Unit1Activity.COUNT_EXTRA);
     TextView helloCount = (TextView)findViewById(R.id.hello_count);
     helloCount.setText(count);
   }
