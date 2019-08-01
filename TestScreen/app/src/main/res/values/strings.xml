@@ -58,8 +58,16 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <string name="hello_world_text">Hello World!</string>
     <string name="color_button">Change Color</string>
     <string name="unit_1_button">Unit 1</string>
+
     <string name="title_activity_unit2">Unit2Activity</string>
     <string name="unit_2_button">Unit 2</string>
+    <string name="intro_text">Droid Desserts</string>
+    <string name="donut_desc">temp donut description</string>
+    <string name="icecream_desc">temp ice cream description</string>
+    <string name="froyo_desc">temp froyo description</string>
+    <string name="donut_order">You ordered a donut.</string>
+    <string name="icecream_order">You ordered an ice cream sandwich.</string>
+    <string name="froyo_order">You ordered a FroYo.</string>
 
     <string name="title_activity_test_navigation_drawer">TestNavigationDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
