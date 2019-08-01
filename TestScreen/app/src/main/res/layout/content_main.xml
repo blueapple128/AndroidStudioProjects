@@ -238,6 +238,16 @@
             android:onClick="onMul"
             android:text="@string/mul_button" />
 
+        <Button
+            android:id="@+id/pow_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_button"
+            android:layout_toEndOf="@id/mul_button"
+            android:layout_toRightOf="@id/mul_button"
+            android:onClick="onPow"
+            android:text="@string/pow_button" />
+
     </RelativeLayout>
 
     <TextView

@@ -76,5 +76,6 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <string name="sub_button">Sub</string>
     <string name="div_button">Div</string>
     <string name="mul_button">Mul</string>
+    <string name="pow_button">Pow</string>
     <string name="computationError">Error</string>
 </resources>
