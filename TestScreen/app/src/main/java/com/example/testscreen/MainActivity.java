@@ -1,9 +1,11 @@
 package com.example.testscreen;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
   private EditText operandOneEditText;
   private EditText operandTwoEditText;
   private TextView resultText;
+  private TextView helloWorldText;
+
+  private String[] colorNames = { "red", "pink", "purple", "deep_purple", "indigo", "blue",
+      "light_blue", "cyan", "teal", "green", "light_green", "lime", "yellow", "amber", "orange",
+      "deep_orange", "brown", "grey", "blue_grey", "black" };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     resultText = findViewById(R.id.result_text);
     operandOneEditText = findViewById(R.id.operand_1_editText);
     operandTwoEditText = findViewById(R.id.operand_2_editText);
+    helloWorldText = findViewById(R.id.hello_world_text);
 
     if (savedInstanceState != null) {
       count = savedInstanceState.getInt("count");
@@ -70,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         replyMessageText.setText(savedInstanceState.getString("reply_text"));
         replyMessageText.setVisibility(View.VISIBLE);
       }
+      helloWorldText.setTextColor(savedInstanceState.getInt("color"));
     }
 
     countText.setText(Integer.toString(count));
@@ -83,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
       outState.putBoolean("reply_visible", true);
       outState.putString("reply_text", replyMessageText.getText().toString());
     }
+    outState.putInt("color", helloWorldText.getCurrentTextColor());
   }
 
   @Override
@@ -276,5 +288,24 @@ public class MainActivity extends AppCompatActivity {
     } else {
       return Double.valueOf(operandText);
     }
+  }
+
+  public void changeColor(View view) {
+    String colorName = colorNames[new Random().nextInt(20)];
+    int colorResourceName = getResources().getIdentifier(colorName, "color", getApplicationContext().getPackageName());
+
+    int colorRes;
+    colorRes = ContextCompat.getColor(this, colorResourceName);
+    /* demonstration: how to manage different API versions without ContextCompat
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      // note: undefined prior to API 23
+      colorRes = getResources().getColor(colorResourceName, this.getTheme());
+    } else {
+      // note: deprecated on or after API 23
+      colorRes = getResources().getColor(colorResourceName);
+    }
+    */
+
+    helloWorldText.setTextColor(colorRes);
   }
 }
