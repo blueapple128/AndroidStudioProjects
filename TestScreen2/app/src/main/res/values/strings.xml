@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestScreen</string>
+    <string name="app_name">TestScreen2</string>
     <string name="message_placeholder">Enter a message</string>
     <string name="send_button">Send</string>
     <string name="count_init">0</string>

@@ -1,4 +1,4 @@
-package com.example.testscreen;
+package com.example.testscreen2;
 
 import org.junit.Test;
 

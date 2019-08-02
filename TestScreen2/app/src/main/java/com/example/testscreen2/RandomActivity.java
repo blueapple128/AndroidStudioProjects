@@ -1,8 +1,7 @@
-package com.example.testscreen;
+package com.example.testscreen2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ public class RandomActivity extends AppCompatActivity {
   private void showRandomNumber() {
     TextView headingText = (TextView)findViewById(R.id.label);
     TextView randomText = (TextView)findViewById(R.id.random);
-    int count = getIntent().getIntExtra("com.example.testscreen.TOTAL_COUNT", 0);
+    int count = getIntent().getIntExtra("com.example.testscreen2.TOTAL_COUNT", 0);
 
     int randomInt = 0;
     if (count > 0) {
