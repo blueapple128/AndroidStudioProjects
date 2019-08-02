@@ -123,4 +123,8 @@ public class Unit2Activity extends AppCompatActivity {
     String timeString = String.format(getString(R.string.time_toast_format), hour, minute);
     displayToast(timeString);
   }
+
+  public void openTabTest(View view) {
+    startActivity(new Intent(this, TabTestActivity.class));
+  }
 }

@@ -141,4 +141,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_test" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/tab_test_button"
+        android:onClick="openTabTest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_button" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="395dp"
+        android:layout_height="221dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="446dp">
+
+    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

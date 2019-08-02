@@ -120,6 +120,14 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <string name="time_button">Time</string>
     <string name="timepicker_tag">timePicker</string>
     <string name="time_toast_format">Time %d:%d</string>
+    <string name="order_activity_title">Order Activity</string>
+    <string name="tab_test_button">Tab Test</string>
+    <string name="tab1_message">Tab 1 message</string>
+    <string name="tab2_message">Tab 2 message</string>
+    <string name="tab3_message">Tab 3 message</string>
+    <string name="tab1_label">Tab 1</string>
+    <string name="tab2_label">Tab 2</string>
+    <string name="tab3_label">Tab 3</string>
 
     <string name="title_activity_test_navigation_drawer">TestNavigationDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -143,7 +151,7 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <string name="mul_button">Mul</string>
     <string name="pow_button">Pow</string>
     <string name="computationError">Error</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_donut">DonutActivity</string>
+    <string name="title_activity_ice_cream">IceCreamActivity</string>
+    <string name="title_activity_froyo">FroyoActivity</string>
 </resources>

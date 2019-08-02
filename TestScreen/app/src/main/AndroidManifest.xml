@@ -9,7 +9,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderActivity"></activity>
+        <activity
+            android:name=".FroyoActivity"
+            android:label="@string/title_activity_froyo"
+            android:parentActivityName=".Unit2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.Unit2Activity" />
+        </activity>
+        <activity
+            android:name=".IceCreamActivity"
+            android:label="@string/title_activity_ice_cream"
+            android:parentActivityName=".Unit2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.Unit2Activity" />
+        </activity>
+        <activity
+            android:name=".DonutActivity"
+            android:label="@string/title_activity_donut"
+            android:parentActivityName=".Unit2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.Unit2Activity" />
+        </activity>
+        <activity
+            android:name=".TabTestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OrderActivity"
+            android:label="@string/order_activity_title"
+            android:parentActivityName=".Unit2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.testscreen.Unit2Activity" />
+        </activity>
         <activity
             android:name=".Unit2Activity"
             android:label="@string/title_activity_unit2"
