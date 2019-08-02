@@ -1,11 +1,13 @@
 package com.example.testscreen;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -16,7 +18,9 @@ import android.widget.Toast;
 
 public class Unit2Activity extends AppCompatActivity {
 
-  private String orderMessage;
+  public static final String ORDER_EXTRA = "com.example.testscreen.ORDER_MESSAGE";
+
+  private int orderMessageRes;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class Unit2Activity extends AppCompatActivity {
         //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
         //    .setAction("Action", null).show();
         Intent intent = new Intent(Unit2Activity.this, OrderActivity.class);
-        intent.putExtra("com.example.testscreen.ORDER_MESSAGE", orderMessage);
+        intent.putExtra(ORDER_EXTRA, getOrderMessage());
         startActivity(intent);
       }
     });
@@ -48,33 +52,75 @@ public class Unit2Activity extends AppCompatActivity {
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      return true;
+    switch (item.getItemId()) {
+      case R.id.menu_order:
+        Intent intent = new Intent(Unit2Activity.this, OrderActivity.class);
+        intent.putExtra(ORDER_EXTRA, getOrderMessage());
+        startActivity(intent);
+        return true;
+      case R.id.menu_status:
+        displayToastRes(R.string.status_message);
+        return true;
+      case R.id.menu_favorites:
+        displayToastRes(R.string.favorites_message);
+        return true;
+      case R.id.menu_contact:
+        displayToastRes(R.string.contact_message);
+        return true;
+      default:
     }
-
     return super.onOptionsItemSelected(item);
   }
 
+  private String getOrderMessage() {
+    return (orderMessageRes == 0) ? null : getString(orderMessageRes);
+  }
+
   public void showDonutOrder(View view) {
-    displayToast(R.string.donut_order);
+    orderMessageRes = R.string.donut_order;
+    displayOrderMessage();
   }
 
   public void showIceCreamOrder(View view) {
-    displayToast(R.string.icecream_order);
+    orderMessageRes = R.string.icecream_order;
+    displayOrderMessage();
   }
 
   public void showFroyoOrder(View view) {
-    displayToast(R.string.froyo_order);
+    orderMessageRes = R.string.froyo_order;
+    displayOrderMessage();
   }
 
-  private void displayToast(int messageRes) {
-    orderMessage = getString(messageRes);
-    Toast.makeText(getApplicationContext(), orderMessage, Toast.LENGTH_SHORT).show();
+  private void displayOrderMessage() { displayToastRes(orderMessageRes); }
+
+  private void displayToastRes(int messageRes) { displayToast(getString(messageRes)); }
+
+  private void displayToast(String message) {
+    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+  }
+
+  public void showAlert(View view) {
+    new AlertDialog.Builder(Unit2Activity.this)
+        .setTitle(getString(R.string.alert_title))
+        .setMessage(getString(R.string.alert_message))
+        .setPositiveButton(getString(R.string.ok_button), new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            displayToastRes(R.string.ok_message);
+          }
+        })
+        .setNegativeButton(getString(R.string.cancel_button), new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            displayToastRes(R.string.cancel_message);
+          }
+        }).show();
+  }
+
+  public void showTimePicker(View view) {
+    new TimePickerFragment().show(getSupportFragmentManager(), getString(R.string.timepicker_tag));
+  }
+
+  public void processTimePickerResult(int hour, int minute) {
+    String timeString = String.format(getString(R.string.time_toast_format), hour, minute);
+    displayToast(timeString);
   }
 }

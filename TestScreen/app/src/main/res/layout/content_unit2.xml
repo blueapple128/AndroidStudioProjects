@@ -22,11 +22,11 @@
 
     <ImageView
         android:id="@+id/donut_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/donut_desc"
         android:onClick="showDonutOrder"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +35,11 @@
 
     <ImageView
         android:id="@+id/icecream_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/icecream_desc"
         android:onClick="showIceCreamOrder"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +48,11 @@
 
     <ImageView
         android:id="@+id/froyo_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/froyo_desc"
         android:onClick="showFroyoOrder"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginRight="@dimen/margin_wide"
         android:text="@string/donut_desc"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginRight="@dimen/margin_wide"
         android:text="@string/icecream_desc"
@@ -93,11 +93,52 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginLeft="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginRight="@dimen/margin_wide"
         android:text="@string/froyo_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/froyo_image"
         app:layout_constraintTop_toTopOf="@+id/froyo_image" />
+
+    <TextView
+        android:id="@+id/alert_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alert_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/froyo_image" />
+
+    <Button
+        android:id="@+id/alert_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/alert_button"
+        android:onClick="showAlert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_test" />
+
+    <TextView
+        android:id="@+id/time_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_button" />
+
+    <Button
+        android:id="@+id/time_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_button"
+        android:onClick="showTimePicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_test" />
 </androidx.constraintlayout.widget.ConstraintLayout>

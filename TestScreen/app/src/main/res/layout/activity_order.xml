@@ -178,7 +178,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/checkbox_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/date_button" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -189,7 +189,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/checkbox_2"
         app:layout_constraintStart_toEndOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/date_button" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -200,7 +200,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/checkbox_3"
         app:layout_constraintStart_toEndOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/date_button" />
 
     <CheckBox
         android:id="@+id/checkBox4"
@@ -235,5 +235,17 @@
         android:onClick="showCheckboxToast"
         app:layout_constraintStart_toEndOf="@+id/checkBox5"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+    <Button
+        android:id="@+id/date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:onClick="showDatePicker"
+        android:text="@string/date_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

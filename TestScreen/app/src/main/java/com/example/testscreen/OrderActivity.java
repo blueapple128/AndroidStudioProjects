@@ -32,7 +32,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_order);
 
-    String orderMessage = getIntent().getStringExtra("com.example.testscreen.ORDER_MESSAGE");
+    String orderMessage = getIntent().getStringExtra(Unit2Activity.ORDER_EXTRA);
     TextView orderText = findViewById(R.id.order_text);
     orderText.setText("Order: " + orderMessage);
 
@@ -110,5 +110,14 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
       }
     }
     Toast.makeText(getApplicationContext(), sb.toString(), Toast.LENGTH_SHORT).show();
+  }
+
+  public void showDatePicker(View view) {
+    new DatePickerFragment().show(getSupportFragmentManager(), getString(R.string.datepicker_tag));
+  }
+
+  public void processDatePickerResult(int year, int month, int day) {
+    String dateString = String.format(getString(R.string.date_toast_format), year, month+1, day);
+    displayToast(dateString);
   }
 }
