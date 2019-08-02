@@ -68,6 +68,30 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <string name="donut_order">You ordered a donut.</string>
     <string name="icecream_order">You ordered an ice cream sandwich.</string>
     <string name="froyo_order">You ordered a FroYo.</string>
+    <string name="name_label">Name</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="address_label">Address</string>
+    <string name="address_hint">Enter address</string>
+    <string name="phone_label">Phone</string>
+    <string name="phone_hint">Enter phone</string>
+    <string name="note_label">Note</string>
+    <string name="note_hint">Enter note</string>
+    <string name="delivery_label">Choose a delivery method:</string>
+    <string name="sameDay">Same day messenger service</string>
+    <string name="nextday">Next day ground delivery</string>
+    <string name="pickup">Pick up</string>
+    <string-array name="phone_spinner_array">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Mobile</item>
+        <item>Other</item>
+    </string-array>
+    <string name="checkbox_1">One</string>
+    <string name="checkbox_2">Two</string>
+    <string name="checkbox_3">Three</string>
+    <string name="checkbox_4">Four</string>
+    <string name="checkbox_5">Five</string>
+    <string name="show_toast_button">Show Toast</string>
 
     <string name="title_activity_test_navigation_drawer">TestNavigationDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
